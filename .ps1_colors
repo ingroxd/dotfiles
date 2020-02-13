@@ -1,0 +1,76 @@
+#!/bin/bash
+
+ps1__colors__main() {
+  export ps1_bold='\[\033[1m\]'
+  export ps1_dark='\[\033[2m\]'
+  export ps1_italic='\[\033[3m\]'
+  export ps1_uline='\[\033[4m\]'
+  export ps1_blink='\[\033[5m\]'
+  export ps1_reverse='\[\033[7m\]'
+  export ps1_hide='\[\033[8m\]'
+  export ps1_strike='\[\033[9m\]'
+  export ps1_end='\[\033[0m\]'
+
+  export ps1_black='\[\033[30m\]'
+  export ps1_red='\[\033[31m\]'
+  export ps1_green='\[\033[32m\]'
+  export ps1_yellow='\[\033[33m\]'
+  export ps1_blue='\[\033[34m\]'
+  export ps1_magenta='\[\033[35m\]'
+  export ps1_cyan='\[\033[36m\]'
+  export ps1_white='\[\033[37m\]'
+
+  export ps1_bblack='\[\033[40m\]'
+  export ps1_bred='\[\033[41m\]'
+  export ps1_bgreen='\[\033[42m\]'
+  export ps1_byellow='\[\033[43m\]'
+  export ps1_bblue='\[\033[44m\]'
+  export ps1_bmagenta='\[\033[45m\]'
+  export ps1_bcyan='\[\033[46m\]'
+  export ps1_bwhite='\[\033[47m\]'
+
+  export ps1_std="${ps1_end}"
+  export ps1_ok="${ps1_green}"
+  export ps1_warn="${ps1_yellow}"
+  export ps1_err="${ps1_red}"
+
+  export ps1_hud="${ps1_std}"
+
+  export ps1_chroot="${ps1_magenta}"
+  export ps1_venv="${ps1_yellow}"
+
+  export ps1_user_ok="${ps1_ok}"
+  export ps1_user_warn="${ps1_warn}"
+  export ps1_user_err="${ps1_err}"
+  export ps1_user="${ps1_user_ok}"
+
+  export ps1_host="${ps1_cyan}"
+
+  export ps1_git_ok="${ps1_ok}"
+  export ps1_git_warn="${ps1_warn}"
+  export ps1_git_err="${ps1_err}"
+  export ps1_git="${ps1_git_ok}"
+
+  export ps1_dir="${ps1_blue}"
+
+  export ps1_errcode_ok="${ps1_ok}"
+  export ps1_errcode_err="${ps1_err}"
+  export ps1_errcode="${ps1_errcode_ok}"
+
+  export ps1_prompt_ok="${ps1_std}"
+  export ps1_prompt_err="${ps1_err}"
+  export ps1_prompt="${ps1_prompt_ok}"
+
+  if [ -x /usr/bin/dircolors ]; then
+    if [ -x ~/.dircolors ]; then
+      eval "$(dircolors -b ~/.dircolors)"
+    else
+      eval "$(dircolors -b)"
+    fi
+  fi
+
+  export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
+}
+
+ps1__colors__main "${@}"
+
