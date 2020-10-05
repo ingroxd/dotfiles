@@ -7,7 +7,6 @@ export TERM='xterm-256color'
 export LIBVIRT_DEFAULT_URI='qemu:///system'
 
 export CLICOLOR=true
-[ -f ~/.ps1_colors ] && . ~/.ps1_colors
 
 export HISTSIZE=
 export HISTFILESIZE=
@@ -17,9 +16,9 @@ shopt -s histappend
 
 shopt -s checkwinsize
 
-[ -f ~/.ps1 ] && . ~/.ps1
+[ -f ~/.bash_ps1 ] && . ~/.bash_ps1
 
-[ -f ~/.aliases ] && . ~/.aliases
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases
 
 if [ -d ~/.rbenv/bin ]; then
   export PATH="${HOME}/.rbenv/bin:${PATH}"

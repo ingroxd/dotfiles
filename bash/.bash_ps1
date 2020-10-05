@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ -f ~/.bash_ps1_colors ] && . ~/.bash_ps1_colors
+
 ps1() {
   # save error code
   local errcode="${?}"
