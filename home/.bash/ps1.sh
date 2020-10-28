@@ -56,7 +56,7 @@ ps1__git() {
 ps1__dir() {
   local color="${PS1_FBLUE}"
   local data='\w'
-  local dir="${color}${data}${ps1_end}"
+  export dir="${color}${data}${ps1_end}"
 }
 
 ps1__errcode() {
