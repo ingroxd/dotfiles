@@ -1,6 +1,3 @@
-"${__LIB_PS1__LOADED-false}" && return    # If loaded, do nothing
-"${__LIB_PS1__LOADING-false}" && exit 70  # If loading, something is wrong
-
 [ -f ~/.bash/font.sh ] && . ~/.bash/font.sh
 
 ps1__chroot() {
@@ -105,6 +102,4 @@ __ps1__load() {
 }
 
 __ps1__load "${@}"
-export __LIB_PS1__LOADING=false
-export __LIB_PS1__LOADED=true
 

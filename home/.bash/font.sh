@@ -1,6 +1,3 @@
-"${__LIB_FONT__LOADED-false}" && return    # If loaded, do nothing
-"${__LIB_FONT__LOADING-false}" && exit 70  # If loading, something is wrong
-
 __font__enable() {
   export PS1_BOLD='\[\033[1m\]'       # "$(tput bold)"
   export PS1_DARK='\[\033[2m\]'       # "$(tput smul)"
@@ -46,6 +43,4 @@ __font__load() {
 }
 
 __font__load "${@}"
-export __LIB_FONT__LOADING=false
-export __LIB_FONT__LOADED=true
 
