@@ -47,8 +47,9 @@ ps1__git() {
   if [ -n "${data}" ]; then
     if [ -n "$(git diff --stat 2>/dev/null)" ]; then
       color="${PS1_FYELLOW}"
-      data="[${PS1_FRED}!${color}${data}]"
+      data="${PS1_FRED}!${color}${data}"
     fi
+    data="[${data}]"
     export git="${color}${data}${PS1_END}"
   fi
 }
