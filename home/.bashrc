@@ -3,7 +3,11 @@
 [ -z "${PS1-}" ] && return
 
 export EDITOR='vim'
-export TERM='xterm-256color'
+if [ -n "${TMUX}" ]; then
+  export TERM='screen-256color'
+else
+  export TERM='xterm-256color'
+fi
 export LIBVIRT_DEFAULT_URI='qemu:///system'
 
 export CLICOLOR=true
@@ -16,13 +20,16 @@ shopt -s histappend
 
 shopt -s checkwinsize
 
-[ -f ~/.bash_ps1 ] && . ~/.bash_ps1
-
-[ -f ~/.bash_aliases ] && . ~/.bash_aliases
-
-if [ -d ~/.rbenv/bin ]; then
-  export PATH="${HOME}/.rbenv/bin:${PATH}"
-  eval "$(rbenv init -)"
+if [ -d ~/.bash ]; then
+  if [ -f ~/.bash/ps1.sh ]; then
+    . ~/.bash/ps1.sh
+  fi
+  if [ -f ~/.bash/path.sh ]; then
+    . ~/.bash/path.sh
+  fi
+  if [ -f ~/.bash/aliases.sh ]; then
+    . ~/.bash/aliases.sh
+  fi
 fi
 
 [ -f /etc/bash_completion ] && . /etc/bash_completion
