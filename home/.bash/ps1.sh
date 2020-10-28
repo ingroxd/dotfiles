@@ -62,7 +62,7 @@ ps1__errcode() {
   local data="${1}"; shift
   data="$(printf '%.3i' $((data)) )"
 
-  if [ $((data)) -ne 0 ]; then
+  if [ "${data}" -ne 0 ]; then
     color="${PS1_FRED}"
   fi
   export errcode="${color}${data}${PS1_END}"
