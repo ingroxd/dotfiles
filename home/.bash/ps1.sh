@@ -59,15 +59,15 @@ ps1__dir() {
   local dir="${color}${data}${ps1_end}"
 }
 
-ps1__errcorde() {
+ps1__errcode() {
   local color="${PS1_FGREEN}"
   local data="${1}"; shift
   data="$(printf '%.3i' $((data)) )"
 
-  if [ $((errcode)) -ne 0 ]; then
-    color="${ps1_errcode_err}"
+  if [ $((data)) -ne 0 ]; then
+    color="${PS1_FRED}"
   fi
-  export dir="${color}${data}${PS1_END}"
+  export errcode="${color}${data}${PS1_END}"
 }
 
 ps1__prompt() {
@@ -75,7 +75,7 @@ ps1__prompt() {
   if [ $((UID)) -eq 0 ]; then
     data='#'
   fi
-  printf prompt="${data}${PS1_END} "
+  export prompt="${data}${PS1_END} "
 }
 
 ps1() {
