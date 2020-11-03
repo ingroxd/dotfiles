@@ -4,8 +4,9 @@ ps1__chroot() {
   local color="${PS1_FMAGENTA}"
   local data''; data="$(cat /etc/debian_chroot 2>/dev/null)"
   if [ -n "${data}" ]; then
-    export chroot=""${color}"[${data}]${PS1_END}"
+    data="[${data}]"
   fi
+  export chroot="${color}${data}${PS1_END}"
 }
 
 ps1__venv() {
@@ -13,8 +14,8 @@ ps1__venv() {
   local data="${VIRTUAL_ENV-}"
   if [ -n "${data}" ]; then
     data="(${_data##*/})"
-    export venv="${color}${data}${PS1_END}"
   fi
+  export venv="${color}${data}${PS1_END}"
 }
 
 ps1__user() {
@@ -47,8 +48,8 @@ ps1__git() {
       data="${PS1_FRED}!${color}${data}"
     fi
     data="[${data}]"
-    export git="${color}${data}${PS1_END}"
   fi
+  export git="${color}${data}${PS1_END}"
 }
 
 ps1__dir() {
