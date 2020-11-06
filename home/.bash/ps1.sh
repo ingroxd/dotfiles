@@ -13,7 +13,7 @@ ps1__venv() {
   local color="${PS1_FYELLOW}"
   local data="${VIRTUAL_ENV-}"
   if [ -n "${data}" ]; then
-    data="(${_data##*/})"
+    data="(${data##*/})"
   fi
   export venv="${color}${data}${PS1_END}"
 }
