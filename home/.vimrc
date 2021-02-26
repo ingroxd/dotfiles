@@ -1,4 +1,9 @@
 "general {
+  " Sets encoding standards
+  set encoding=utf-8
+  set termencoding=utf-8
+
+
   " Sets how many lines of history VIM has to remember
   set history=500
 
