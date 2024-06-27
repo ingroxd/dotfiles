@@ -3,7 +3,6 @@
   set encoding=utf-8
   set termencoding=utf-8
 
-
   " Sets how many lines of history VIM has to remember
   set history=500
 
@@ -57,11 +56,8 @@
   " Display line number
   set number
 
-  " Display relative line number
-  set relativenumber
-
   " Display breaklines
-  set listchars=tab:❘-,trail:·,extends:»,precedes:«,nbsp:×,eol:¬
+  set listchars=tab:\|-,trail:.,extends:>,precedes:<,nbsp:~,eol:$
 "}
 
 "font {
@@ -110,12 +106,21 @@
   au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79
 "}
 
-"shortcut {
-  autocmd BufEnter * set mouse=
-  autocmd BufEnter * map <F2> :set number! relativenumber!<cr>
-  autocmd BufEnter * map <F3> :set paste!<cr>
-  autocmd BufEnter * map <F4> :set spell!<cr>
-  autocmd BufEnter * map <F5> :set list!<cr>
-  nnoremap <space> za
+"php {
+  au BufNewFile,BufRead *.php set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79
 "}
 
+"shortcut {
+  "remove mouse
+  autocmd BufEnter * set mouse=
+  "toggle numbers
+  autocmd BufEnter * map <F2> :set number!<cr>
+  "toggle paste mode
+  autocmd BufEnter * map <F3> :set paste!<cr>
+  "toggle spell check
+  autocmd BufEnter * map <F4> :set spell!<cr>
+  "toggle listchar visibility
+  autocmd BufEnter * map <F5> :set list!<cr>
+  "folding/unfolding with space
+  nnoremap <space> za
+"}
