@@ -177,8 +177,8 @@ export PROMPT_COMMAND=ps1
 
 shopt -s checkwinsize
 
-if [ -f ~/.bash_aliases.sh ]; then
-  . ~/.bash_aliases.sh
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
 fi
 
 export EDITOR='vim'
